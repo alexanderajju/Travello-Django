@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="login.css" type="text/css" rel="stylesheet">
+<style>
+    body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background:#34495e;
+}
+.box{
+    width: 300px;
+    padding: 400px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background:#191919;
+    text-align: center;
+}
+.box input[type="text"],.box input[type="password"]{
+    border:0;
+    background:none;
+    display:block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid#14298d;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+
+}
+.box input[type="text"]:focus,.box input[type="password"]:focus{
+    width: 280px;
+    border-color: #2ecc71;
+}
+.box input[type="submit"]{
+    border:0;
+    background:none;
+    display:block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid#14298d;
+    padding: 14px 10px;
+    width: 150px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.box input[type="submit"]:hover{
+    background: #2ecc71;
+}
+h1{
+    font-weight: 500;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+    <form class="box" action="login" method='post' autocomplete="off" >
+        {%csrf_token%}
+        <h1>LOGIN</h1>
+        <input type="text" name="username" placeholder="User Name"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="submit" value="login" >
+        <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+        </div>
+    </form>
+  
+  
+    
+</body>
+</html>
